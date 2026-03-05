@@ -1,0 +1,58 @@
+.booking-container {
+  max-width: 500px;
+  margin: 120px auto;
+  padding: 25px;
+  background: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.booking-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-methods label {
+  cursor: pointer;
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: none;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4c6cff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pay-btn:hover {
+  background: #3a55e0;
+}
+
+.cash-text {
+  margin-bottom: 15px;
+  color: #ccc;
+}

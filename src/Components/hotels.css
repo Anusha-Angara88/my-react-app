@@ -1,0 +1,136 @@
+/* ================= DESKTOP DEFAULT ================= */
+
+.hotels-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.hotels-title {
+  margin-bottom: 24px;
+  color: white;
+}
+
+.hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.hotel-card {
+  background: #1f1f1f;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #4c6cff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hotel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.hotel-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.hotel-title {
+  padding: 12px 14px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.hotelList {
+  margin-top: -80px; 
+}
+/* Pagination Styles */
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.pagination button:hover {
+  background: #0071c2;
+  color: white;
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.activePage {
+  background: #0071c2 !important;
+  color: white;
+}
+/* ========== DESKTOP FIX FOR FIXED NAVBAR ========= */
+@media (min-width: 769px) {
+  .contentWrapper {
+    margin-top: 10px; /* adjust if needed */
+  }
+}
+
+
+
+/* ================= MOBILE VIEW ONLY ================= */
+@media (max-width: 768px) {
+
+  /* Stack both sections */
+  div[style*="mainContainer"] {
+    flex-direction: column !important;
+  }
+
+  /* Reduce padding */
+  div[style*="hotelSection"],
+  div[style*="roomsSection"] {
+    padding: 15px !important;
+  }
+
+  /* Make inputs full width */
+  input {
+    width: 100% !important;
+  }
+
+  /* Stack selection rows */
+  div[style*="selectionRow"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Stack buttons */
+  div[style*="actionRow"] {
+    flex-direction: column !important;
+  }
+
+  button {
+    width: 100% !important;
+  }
+
+  /* Room grid better spacing */
+  div[style*="roomsContainer"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Reduce image height */
+  img {
+    height: auto !important;
+  }
+}

@@ -1,0 +1,287 @@
+[
+  {
+    "id": 1,
+    "name": "Grand Palace Hotel",
+    "city": "Paris",
+    "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 12000,
+    "rating": 4.5,
+    "image": "https://picsum.photos/400/250?1",
+    "description": "Luxury hotel in the heart of Paris.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 1, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 0, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "John", "rating": 5, "comment": "Amazing stay and great service!" },
+      { "user": "Emma", "rating": 4, "comment": "Very clean and perfect location." }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Sea View Resort",
+    "city": "Dubai",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 20000,
+    "rating": 4.8,
+    "image": "https://picsum.photos/400/250?2",
+    "description": "Beach resort with beautiful sea views.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 4, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 2, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Ali", "rating": 5, "comment": "Best beach experience!" },
+      { "user": "Sophia", "rating": 4, "comment": "Loved the view and pool." }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Mountain Lodge",
+    "city": "Switzerland",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 15000,
+    "rating": 4.6,
+    "image": "https://picsum.photos/400/250?3",
+    "description": "Stay surrounded by peaceful mountains.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 6, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 3, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Lucas", "rating": 5, "comment": "Beautiful scenery and calm vibes." },
+      { "user": "Anna", "rating": 4, "comment": "Very cozy rooms." }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Royal Heritage Hotel",
+    "city": "London",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 18000,
+    "rating": 4.7,
+    "image": "https://picsum.photos/400/250?4",
+    "description": "Luxury experience in central London.",
+    "rooms": [
+      { "type": "Single Room", "price": 900, "available": 5, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 4, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "David", "rating": 5, "comment": "Top class hotel!" },
+      { "user": "Olivia", "rating": 4, "comment": "Elegant and clean." }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "City Lights Inn",
+    "city": "New York",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 16000,
+    "rating": 4.3,
+    "image": "https://picsum.photos/400/250?5",
+    "description": "Modern stay in downtown Manhattan.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 4, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 2, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Mike", "rating": 4, "comment": "Good location, bit noisy." },
+      { "user": "Sara", "rating": 5, "comment": "Loved the modern design!" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Desert Pearl Hotel",
+    "city": "Dubai",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 22000,
+    "rating": 4.9,
+    "image": "https://picsum.photos/400/250?6",
+    "description": "Premium hotel with desert safari.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 5, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 3, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Hassan", "rating": 5, "comment": "Luxury at its best!" },
+      { "user": "Nina", "rating": 5, "comment": "Safari experience was amazing." }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Sunset Paradise",
+    "city": "Maldives",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 35000,
+    "rating": 5.0,
+    "image": "https://picsum.photos/400/250?7",
+    "description": "Overwater villas with sunset views.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 6, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 4, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Liam", "rating": 5, "comment": "Dream vacation spot!" },
+      { "user": "Ella", "rating": 5, "comment": "Perfect honeymoon place." }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Snow Peak Resort",
+    "city": "Switzerland",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 19000,
+    "rating": 4.6,
+    "image": "https://picsum.photos/400/250?8",
+    "description": "Ski resort with cozy cabins.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 5, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 3, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Chris", "rating": 4, "comment": "Great skiing experience." },
+      { "user": "Kate", "rating": 5, "comment": "Loved the snow views!" }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Golden Sands Hotel",
+    "city": "Miami",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 17000,
+    "rating": 4.4,
+    "image": "https://picsum.photos/400/250?9",
+    "description": "Beachfront tropical hotel.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 4, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 2, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Ryan", "rating": 4, "comment": "Nice beach access." },
+      { "user": "Mia", "rating": 5, "comment": "Loved the vibe!" }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Imperial Suites",
+    "city": "Tokyo",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 21000,
+    "rating": 4.7,
+    "image": "https://picsum.photos/400/250?10",
+    "description": "Elegant suites in Tokyo.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 5, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 3, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Ken", "rating": 5, "comment": "Very clean and modern." },
+      { "user": "Aiko", "rating": 4, "comment": "Great service." }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Lakeview Retreat",
+    "city": "Canada",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 14000,
+    "rating": 4.5,
+    "image": "https://picsum.photos/400/250?11",
+    "description": "Relaxing lake view hotel.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 4, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 2, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Tom", "rating": 4, "comment": "Peaceful stay." },
+      { "user": "Lucy", "rating": 5, "comment": "Beautiful lake view!" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Urban Stay Hotel",
+    "city": "Berlin",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 13000,
+    "rating": 4.2,
+    "image": "https://picsum.photos/400/250?12",
+    "description": "Affordable modern stay.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 6, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 3, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Max", "rating": 4, "comment": "Budget friendly." },
+      { "user": "Lena", "rating": 4, "comment": "Good for short stay." }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Ocean Breeze Resort",
+    "city": "Sydney",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 23000,
+    "rating": 4.8,
+    "image": "https://picsum.photos/400/250?13",
+    "description": "Luxury oceanfront resort.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 5, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 3, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Noah", "rating": 5, "comment": "Amazing ocean view!" },
+      { "user": "Chloe", "rating": 5, "comment": "Fantastic service." }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Historic Plaza Hotel",
+    "city": "Rome",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 17500,
+    "rating": 4.6,
+    "image": "https://picsum.photos/400/250?14",
+    "description": "Historic hotel near Colosseum.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 4, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 2, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Marco", "rating": 5, "comment": "Perfect location!" },
+      { "user": "Julia", "rating": 4, "comment": "Loved the history." }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Palm Tree Resort",
+    "city": "Maldives",
+     "food": " Breakfast/Meals included",
+    "internet": "Free WiFi ",
+    "price": 40000,
+    "rating": 5.0,
+    "image": "https://picsum.photos/400/250?15",
+    "description": "Ultimate luxury villas.",
+    "rooms": [
+      { "type": "Single Room", "price": 500, "available": 6, "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=400" },
+      { "type": "Double Room", "price": 900, "available": 4, "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" }
+    ],
+    "reviews": [
+      { "user": "Ethan", "rating": 5, "comment": "Best resort ever!" },
+      { "user": "Sophia", "rating": 5, "comment": "Pure luxury!" }
+    ]
+  }
+]

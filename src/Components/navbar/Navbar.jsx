@@ -1,0 +1,77 @@
+import "./navbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBed, faPlane, faTaxi, faCar, faUser, faHotel } from "@fortawesome/free-solid-svg-icons";
+import Searchbar from "../Searchbar";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+const Navbar = () => {
+  const navigate = useNavigate();
+  const [openDropdown, setOpenDropdown] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    navigate("/signin");
+  };
+
+  return (
+    <div className="navbar">
+      <div className="navTop">
+        <span
+          className="logo"
+          onClick={() => navigate("/")}
+        >
+          <FontAwesomeIcon icon={faHotel} />
+          PRIME STAY
+        </span>
+
+        <div className="navButtons">
+          <Searchbar />
+
+          {/* Profile Icon */}
+          <div className="profileWrapper">
+            <div
+              className="profileCircle"
+              onClick={() => setOpenDropdown(!openDropdown)}
+            >
+              <FontAwesomeIcon icon={faUser} />
+            </div>
+
+            {openDropdown && (
+              <div className="profileDropdown">
+                <div onClick={() => navigate("/profile")}>
+                  My Profile
+                </div>
+                <div onClick={handleLogout}>
+                  Logout
+                </div>
+              </div>
+            )}
+          </div>
+
+        </div>
+      </div>
+
+      <div className="navBottom">
+
+        {/* STAYS BUTTON */}
+        <div
+          className="navItem active"
+          onClick={() => navigate("/hotels")}
+          style={{ cursor: "pointer" }}
+        >
+          
+          <span>Stays</span>
+        </div>
+
+      </div>
+
+      <h1 className="headerTitle">Everything You Need for Your Trip</h1>
+      <h3 className="headerDesc">
+        Plan your journey effortlessly with Prime Stay.
+      </h3>
+    </div>
+  );
+};
+
+export default Navbar;
