@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #b26089;
+  background-color: #78be99;
   color: white;
   width: 100%;
   position: relative;
@@ -9,7 +9,9 @@
   flex-direction: column;
   z-index: 999;
   text-align: center;
+  position: relative;
 }
+
 
 /* TOP ROW */
 .navTop {
@@ -28,6 +30,7 @@
 
 .navButtons {
   display: flex;
+  align-items: center;
   gap: 15px;
 }
 
@@ -67,54 +70,12 @@
   margin-top: 120px;
 }
 
-/* ================= MOBILE VIEW FIX ================= */
-@media (max-width: 768px) {
-
-  body {
-    overflow-x: hidden; /* prevent right scroll */
-  }
-
-  .navbar {
-    width: 100%;
-  }
-
-  .navTop {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .navButtons {
-    flex-direction: column;
-    width: 100%;
-    gap: 8px;
-  }
-
-  .navButton {
-    width: 100%;
-    text-align: center;
-    padding: 8px;
-  }
-
-  .navBottom {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .navItem {
-    font-size: 13px;
-    padding: 6px 10px;
-  }
-
-  .contentWrapper {
-    margin-top: 80px;
-  }
-}
+/* PROFILE */
 .profileWrapper{
-  position: relative;
+  position:absolute;
+  right:25px;
+  top:8px;
+  z-index:1000;
 }
 
 .profileCircle{
@@ -149,4 +110,112 @@
 
 .profileDropdown div:hover{
   background:#f2f6ff;
+}
+
+/* SEARCHBAR DESKTOP FIX */
+.search{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}
+.searchContainer{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 8px;
+  border-radius: 10px;
+}
+/* MOBILE */
+@media (max-width:768px){
+  body{
+  overflow-x:hidden;
+}
+  .navTop{
+    position:relative;
+    padding-right:60px;
+  }
+
+  .navButtons{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:8px;
+  }
+
+  
+.search{
+  width:95%;
+  margin:10px auto;
+  left:0;
+  padding:0 10px;
+  box-sizing:border-box;
+  transform:none;
+  height:auto;   /* ADD THIS LINE */
+}
+
+.searchContainer{
+  width:100%;
+  box-sizing:border-box;
+  flex-wrap:wrap;
+}
+
+
+.searchItem{
+  padding:6px 8px;
+}
+
+.searchInput{
+  font-size:12px;
+}
+
+.searchText{
+  font-size:12px;
+}
+
+.searchBtn{
+  padding:6px 6px;
+  font-size:13px;
+}
+
+.searchIcon{
+  font-size:14px;
+}
+
+/* profile mobile */
+.profileCircle{
+  width:45px;
+  height:45px;
+  font-size:22px;
+  margin-right:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.profileWrapper{
+  position:absolute;
+  right:55px;
+  top:4px;
+}
+
+/* STAYS BUTTON */
+.navBottom{
+  width:100%;
+  display:flex;
+  justify-content:flex-start;
+  padding:10px 15px;
+}
+
+.contentWrapper{
+  width:100%;
+  padding:0 10px;
+  box-sizing:border-box;
+  margin:0 auto;
+}
+.hotelsContainer{
+  display:grid;
+  grid-template-columns:1fr;
+}
 }

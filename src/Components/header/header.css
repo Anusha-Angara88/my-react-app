@@ -1,21 +1,50 @@
 .header{
     background-color: white;
     color:white;
-  display: none;
+    display: none;
     justify-content: center;
-
 }
+
 .headerContainer{
     width:100%;
     max-width: 1024px;
     margin:20px 0px 100px 0px;
 }
+
 .headerList{
     display: flex;
     gap:40px;
 }
+
 .headerListItem{
     display:flex;
     text-align: center;
     gap:20px;
+}
+
+
+/* ===== MOBILE VIEW FIX ===== */
+
+@media (max-width:768px){
+
+.header{
+    display:flex;
+    justify-content:center;
+}
+
+.headerContainer{
+    width:100%;
+    margin:10px 0px 20px 0px;
+}
+
+.headerList{
+    justify-content:center;
+    gap:20px;
+}
+
+.headerListItem{
+    gap:10px;
+    font-size:14px;
+}
+
 }

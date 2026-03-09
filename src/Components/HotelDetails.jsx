@@ -16,6 +16,15 @@ const HotelDetails = () => {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
 
+  const [hoveredRoom, setHoveredRoom] = useState(null);
+
+  const [reviews, setReviews] = useState([]);
+  const [reviewRating, setReviewRating] = useState("");
+  const [reviewComment, setReviewComment] = useState("");
+  const [editingIndex, setEditingIndex] = useState(null);
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   useEffect(() => {
     fetch("/hotels.json")
       .then((res) => res.json())
@@ -24,6 +33,7 @@ const HotelDetails = () => {
           (item) => item.id === parseInt(id)
         );
         setHotel(selectedHotel);
+        setReviews(selectedHotel.reviews || []);
       });
   }, [id]);
 
@@ -49,12 +59,7 @@ const HotelDetails = () => {
       : 0;
 
   const handleBooking = () => {
-    if (
-      !selectedRoom ||
-      !checkIn ||
-      !checkOut ||
-      totalDays <= 0
-    ) {
+    if (!selectedRoom || !checkIn || !checkOut || totalDays <= 0) {
       alert("Please select room, valid dates and details before booking!");
       return;
     }
@@ -63,8 +68,6 @@ const HotelDetails = () => {
       alert("Not enough rooms available!");
       return;
     }
-
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     if (!currentUser) {
       alert("Please login first!");
@@ -94,7 +97,6 @@ const HotelDetails = () => {
     allBookings.push(booking);
     localStorage.setItem("bookings", JSON.stringify(allBookings));
 
-    // 🔥 Reduce Available Rooms
     const updatedHotel = { ...hotel };
     updatedHotel.rooms = updatedHotel.rooms.map((room) =>
       room.type === selectedRoom.type
@@ -106,6 +108,53 @@ const HotelDetails = () => {
     setSelectedRoom(null);
 
     navigate("/profile");
+  };
+
+  // Check if user already reviewed
+  const userReviewIndex = reviews.findIndex(
+    (r) => r.email === currentUser?.email
+  );
+
+  const handleReviewSubmit = () => {
+    if (!reviewRating || !reviewComment) {
+      alert("Fill all fields");
+      return;
+    }
+
+    const newReview = {
+      user: currentUser.name,
+      email: currentUser.email,
+      rating: reviewRating,
+      comment: reviewComment,
+    };
+
+    if (editingIndex !== null) {
+      const updated = [...reviews];
+      updated[editingIndex] = newReview;
+      setReviews(updated);
+      setEditingIndex(null);
+    } else {
+      if (userReviewIndex !== -1) {
+        alert("You already submitted a review.");
+        return;
+      }
+      setReviews([...reviews, newReview]);
+    }
+
+    setReviewRating("");
+    setReviewComment("");
+  };
+
+  const handleEdit = (index) => {
+    const r = reviews[index];
+    setReviewRating(r.rating);
+    setReviewComment(r.comment);
+    setEditingIndex(index);
+  };
+
+  const handleDelete = (index) => {
+    const updated = reviews.filter((_, i) => i !== index);
+    setReviews(updated);
   };
 
   return (
@@ -190,14 +239,8 @@ const HotelDetails = () => {
                   selectedRoom && selectedRoom.available === 0
                     ? "gray"
                     : "green",
-                cursor:
-                  selectedRoom && selectedRoom.available === 0
-                    ? "not-allowed"
-                    : "pointer",
               }}
-              disabled={
-                selectedRoom && selectedRoom.available === 0
-              }
+              disabled={selectedRoom && selectedRoom.available === 0}
               onClick={handleBooking}
             >
               {selectedRoom && selectedRoom.available === 0
@@ -221,12 +264,16 @@ const HotelDetails = () => {
                 key={index}
                 style={{
                   ...styles.roomCard,
-                  border: selectedRoom?.type === room.type
-                    ? "2px solid green"
-                    : "1px solid #eee",
+                  transform:
+                    hoveredRoom === index ? "scale(1.05)" : "scale(1)",
+                  border:
+                    selectedRoom?.type === room.type
+                      ? "2px solid green"
+                      : "1px solid #eee",
                   opacity: room.available === 0 ? 0.5 : 1,
-                  cursor: room.available === 0 ? "not-allowed" : "pointer",
                 }}
+                onMouseEnter={() => setHoveredRoom(index)}
+                onMouseLeave={() => setHoveredRoom(null)}
                 onClick={() =>
                   room.available > 0 && setSelectedRoom(room)
                 }
@@ -247,16 +294,55 @@ const HotelDetails = () => {
             ))}
           </div>
 
+          {/* Reviews */}
           <h3 style={{ marginTop: "15px" }}>Reviews</h3>
-          {hotel.reviews?.map((review, index) => (
+
+          {reviews.map((review, index) => (
             <div key={index} style={styles.reviewCard}>
               <strong>{review.user}</strong>
               <p>⭐ {review.rating}</p>
               <p>{review.comment}</p>
+
+              {review.email === currentUser?.email && (
+                <>
+                  <button onClick={() => handleEdit(index)}>Edit</button>
+                  <button onClick={() => handleDelete(index)}>Delete</button>
+                </>
+              )}
             </div>
           ))}
-        </div>
 
+          {userReviewIndex === -1 || editingIndex !== null ? (
+            <>
+              <h3>Add Review</h3>
+
+              <input
+                placeholder="Rating"
+                value={reviewRating}
+                onChange={(e) => setReviewRating(e.target.value)}
+                style={styles.inputBox}
+              />
+
+              <textarea
+                placeholder="Comment"
+                value={reviewComment}
+                onChange={(e) => setReviewComment(e.target.value)}
+                style={{ width: "100%", marginTop: "5px" }}
+              />
+
+              <button
+                onClick={handleReviewSubmit}
+                style={{ marginTop: "5px" }}
+              >
+                {editingIndex !== null ? "Update Review" : "Add Review"}
+              </button>
+            </>
+          ) : (
+            <p style={{ marginTop: "10px" }}>
+              You already submitted a review.
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -269,50 +355,49 @@ const styles = {
     padding: "20px",
   },
   mainContainer: {
-    display: "flex",
-    gap: "20px",
-    maxWidth: "1000px",
-    width: "100%",
-    flexWrap: "wrap",
-  },
+  display: "flex",
+  gap: "20px",
+  maxWidth: "1400px",   // change 1000px → 1400px
+  width: "100%",
+  flexWrap: "wrap",
+},
   hotelSection: {
-    flex: 1,
-    minWidth: "300px",
-    border: "1px solid #ddd",
-    borderRadius: "10px",
-    padding: "12px",
-  },
+  flex: "1.3",          // change from 1
+  minWidth: "420px",    // change 300 → 420
+  border: "1px solid #ddd",
+  borderRadius: "10px",
+  padding: "10px",
+},
   roomsSection: {
-    flex: 1,
-    minWidth: "300px",
-    border: "1px solid #ddd",
-    borderRadius: "10px",
-    padding: "12px",
-  },
-  image: {
-    width: "100%",
-    height: "200px",
-    objectFit: "cover",
-    borderRadius: "8px",
-    marginBottom: "20px",
-  },
+  flex: "1",            // keep smaller than left
+  minWidth: "420px",    // change 300 → 420
+  border: "1px solid #ddd",
+  borderRadius: "10px",
+  padding: "15px",
+},
+ image: {
+  width: "100%",
+  height: "250px",   // 200 → 250
+  objectFit: "cover",
+  borderRadius: "8px",
+  marginBottom: "20px",
+},
   roomsContainer: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-    gap: "15px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+    gap: "10px",
   },
   roomCard: {
-    border: "1px solid #eee",
     borderRadius: "8px",
-    padding: "8px",
+    padding: "6px",
     textAlign: "center",
+    fontSize: "13px",
   },
   roomImage: {
     width: "100%",
-    height: "120px",
+    height: "90px",
     objectFit: "cover",
     borderRadius: "6px",
-    marginBottom: "5px",
   },
   reviewCard: {
     borderBottom: "1px solid #eee",
@@ -322,7 +407,6 @@ const styles = {
     display: "flex",
     gap: "10px",
     marginTop: "15px",
-    flexWrap: "wrap",
   },
   bookBtn: {
     padding: "8px 12px",
@@ -341,15 +425,16 @@ const styles = {
     display: "flex",
     gap: "10px",
     margin: "10px 0",
-    flexWrap: "wrap",
   },
   inputBox: {
-    width: "120px",
-    marginLeft: "5px",
-    padding: "3px 6px",
-    borderRadius: "4px",
-    border: "1px solid #ccc",
+    padding: "4px",
+    margin: "4px",
   },
+  inputBox: {
+    padding: "4px",
+    margin: "4px",
+  },
+  
 };
 
 export default HotelDetails;

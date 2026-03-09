@@ -3,7 +3,7 @@ body {
 }
 .footer {
   width: 100vw;
-  background-color: #161617;
+  background-color: hwb(240 6% 90%);
   color: white;
   padding: 40px 60px;
 }

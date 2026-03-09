@@ -2,6 +2,7 @@
   max-width:500px;
   margin:auto;
   padding:20px;
+  width:100%;
   
 }
 
@@ -83,11 +84,27 @@
 
   .hotelCard{
     flex-direction:column;
+    width:100%;
   }
 
   .hotelImg{
-    width:100%;
-    height:200px;
-  }
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
 
+.hotelCard{
+  width:100%;
+}
+
+.hotelsContainer{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.hotelListContainer{
+  width:100%;
+  max-width:100%;
+}
 }
