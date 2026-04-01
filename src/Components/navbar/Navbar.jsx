@@ -75,10 +75,6 @@ const Navbar = () => {
 
 
   
-
-
-
-  
 </div>
       <h1 className="headerTitle">Everything You Need for Your Trip</h1>
       <h3 className="headerDesc">
