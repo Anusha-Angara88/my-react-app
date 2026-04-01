@@ -1,6 +1,6 @@
 import "./navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faHotel } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faHotel, faPlane, faCar, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import Searchbar from "../Searchbar";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -24,6 +24,7 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faHotel} />
           PRIME STAY
         </span>
+        
 
         {/* PROFILE */}
         <div className="profileWrapper">
@@ -51,15 +52,34 @@ const Navbar = () => {
 
       {/* STAYS BUTTON */}
       <div className="navBottom">
-        <div
-          className="navItem active"
-          onClick={() => navigate("/hotels")}
-          style={{ cursor: "pointer" }}
-        >
-          <span>Stays</span>
-        </div>
-      </div>
+  <div
+    className="navItem active"
+    onClick={() => navigate("/hotels")}
+    style={{ cursor: "pointer" }}
+  >
+    <FontAwesomeIcon icon={faHotel} /> 
+    <span>Stays</span>
+  </div>
 
+
+
+  <div
+    className="navItem active"
+    onClick={() => navigate("/flights")}
+    style={{ cursor: "pointer" }}
+  >
+    <FontAwesomeIcon icon={faPlane} /> 
+    <span>Flight</span>
+  </div>
+
+
+
+  
+
+
+
+  
+</div>
       <h1 className="headerTitle">Everything You Need for Your Trip</h1>
       <h3 className="headerDesc">
         Plan your journey effortlessly with Prime Stay.

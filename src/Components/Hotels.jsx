@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Hotels.css";
 
 function Hotels() {
+
   const [hotels, setHotels] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [wishlist, setWishlist] = useState([]);
@@ -10,17 +11,21 @@ function Hotels() {
   const hotelsPerPage = 3;
 
   useEffect(() => {
+
     fetch("/hotels.json")
       .then((res) => res.json())
       .then((data) => setHotels(data));
 
     const savedWishlist =
       JSON.parse(localStorage.getItem("wishlist")) || [];
+
     setWishlist(savedWishlist);
+
   }, []);
 
   const toggleWishlist = (e, hotel) => {
-    e.preventDefault(); // prevents navigation
+
+    e.preventDefault();
     e.stopPropagation();
 
     let updatedWishlist;
@@ -38,6 +43,7 @@ function Hotels() {
     }
 
     setWishlist(updatedWishlist);
+
     localStorage.setItem(
       "wishlist",
       JSON.stringify(updatedWishlist)
@@ -48,30 +54,42 @@ function Hotels() {
 
   const indexOfLastHotel = currentPage * hotelsPerPage;
   const indexOfFirstHotel = indexOfLastHotel - hotelsPerPage;
+
   const currentHotels = hotels.slice(indexOfFirstHotel, indexOfLastHotel);
 
   const handlePageChange = (pageNumber) => {
+
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
   };
 
   return (
     <div className="hotels-container">
+
       <h2 className="hotels-title">Hotels List</h2>
 
       <div className="hotels-grid">
+
         {currentHotels.map((hotel) => {
+
           const isFavorite = wishlist.find(
             (item) => item.id === hotel.id
           );
 
           return (
+
             <Link
               to={`/hotels/${hotel.id}`}
               key={hotel.id}
               className="hotel-card"
               style={{ position: "relative" }}
             >
+
               {/* ❤️ Like Icon */}
               <div
                 onClick={(e) => toggleWishlist(e, hotel)}
@@ -91,14 +109,23 @@ function Hotels() {
                 alt={hotel.name}
                 className="hotel-image"
               />
+
               <h3 className="hotel-title">{hotel.name}</h3>
+
             </Link>
+
           );
+
         })}
+
       </div>
 
+      {/* Pagination */}
+
       {totalPages > 1 && (
+
         <div className="pagination">
+
           <button
             disabled={currentPage === 1}
             onClick={() => handlePageChange(currentPage - 1)}
@@ -107,6 +134,7 @@ function Hotels() {
           </button>
 
           {[...Array(totalPages)].map((_, index) => (
+
             <button
               key={index}
               className={currentPage === index + 1 ? "activePage" : ""}
@@ -114,6 +142,7 @@ function Hotels() {
             >
               {index + 1}
             </button>
+
           ))}
 
           <button
@@ -122,8 +151,11 @@ function Hotels() {
           >
             Next
           </button>
+
         </div>
+
       )}
+
     </div>
   );
 }

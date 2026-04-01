@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #78be99;
+  background-color: #966d93;
   color: white;
   width: 100%;
   position: relative;
@@ -10,7 +10,11 @@
   z-index: 999;
   text-align: center;
   position: relative;
+ 
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
 
 
 /* TOP ROW */
@@ -38,24 +42,25 @@
   border: none;
   padding: 8px 15px;
   cursor: pointer;
-  color: #003580;
+  color: #94cbb6;
   font-weight: 500;
   border-radius: 6px;
 }
 
 /* SECOND ROW */
-.navBottom {
+.navBottom{
   width: 100%;
   display: flex;
   gap: 40px;
   padding: 0 20px 10px 20px;
   box-sizing: border-box;
+  margin-top: 10px;  
 }
 
 .navItem {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 1px;
   cursor: pointer;
 }
 
@@ -145,22 +150,26 @@
   }
 
   
+
+
 .search{
   width:95%;
   margin:10px auto;
-  left:0;
-  padding:0 10px;
-  box-sizing:border-box;
+  left:0;                 /* override desktop centering */
   transform:none;
-  height:auto;   /* ADD THIS LINE */
+  position:relative;
+  display:flex;
+  justify-content:center; /* center container */
+  height:auto;
 }
 
 .searchContainer{
-  width:100%;
-  box-sizing:border-box;
-  flex-wrap:wrap;
+  width:100%;             /* take full width */
+  max-width:100%;
+  display:flex;
+  margin:0 auto;          /* center */
+  padding:5px;
 }
-
 
 .searchItem{
   padding:6px 8px;
@@ -183,12 +192,14 @@
   font-size:14px;
 }
 
+
+
 /* profile mobile */
 .profileCircle{
   width:45px;
   height:45px;
   font-size:22px;
-  margin-right:15px;
+  margin-right:30px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -202,14 +213,15 @@
 
 /* STAYS BUTTON */
 .navBottom{
-  width:100%;
+  width:60%;
   display:flex;
-  justify-content:flex-start;
-  padding:10px 15px;
+  
+  padding:2px 2px;
+  gap:6px;
 }
 
 .contentWrapper{
-  width:100%;
+  width:80%;
   padding:0 10px;
   box-sizing:border-box;
   margin:0 auto;
@@ -218,4 +230,17 @@
   display:grid;
   grid-template-columns:1fr;
 }
-}
+.headerTitle{
+    font-size:39px;      /* smaller text for mobile */
+    line-height:1.2;
+    text-align:center;
+    padding:0 6px;      /* prevent edge cutting */
+    word-wrap:break-word;
+  }
+
+  .headerDesc{
+    font-size:16px;
+    text-align:center;
+    padding:0 6px;
+  }
+};

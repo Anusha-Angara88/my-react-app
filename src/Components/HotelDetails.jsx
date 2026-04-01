@@ -351,26 +351,28 @@ const HotelDetails = () => {
 const styles = {
   pageContent: {
     display: "flex",
-    justifyContent: "center",
+     justifyContent: "center",
     padding: "20px",
   },
   mainContainer: {
   display: "flex",
-  gap: "20px",
+  gap: "10px",
   maxWidth: "1400px",   // change 1000px → 1400px
   width: "100%",
   flexWrap: "wrap",
+   margin: "0 auto",
+  
 },
   hotelSection: {
   flex: "1.3",          // change from 1
-  minWidth: "420px",    // change 300 → 420
+    minWidth: "min(420px, 100%)",  // change 300 → 420
   border: "1px solid #ddd",
   borderRadius: "10px",
-  padding: "10px",
+  padding: "8px",
 },
   roomsSection: {
   flex: "1",            // keep smaller than left
-  minWidth: "420px",    // change 300 → 420
+ minWidth: "min(420px, 100%)", // change 300 → 420
   border: "1px solid #ddd",
   borderRadius: "10px",
   padding: "15px",
@@ -434,7 +436,6 @@ const styles = {
     padding: "4px",
     margin: "4px",
   },
-  
 };
 
 export default HotelDetails;

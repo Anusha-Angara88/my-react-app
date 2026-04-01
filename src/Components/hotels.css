@@ -94,7 +94,7 @@
 @media (max-width:768px){
 
 /* remove left space */
-div[style*="padding: 20px"]{
+div[style*="padding: 10px"]{
   padding:8px !important;
 }
 
@@ -112,7 +112,7 @@ div[style*="min-width: 420px"]{
 
 /* hotel and room cards full width */
 div[style*="border-radius: 10px"]{
-  width:100% !important;
+  width:50% !important;
 }
 
 /* rooms grid mobile layout */

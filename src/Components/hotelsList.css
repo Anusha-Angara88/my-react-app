@@ -84,7 +84,7 @@
 
   .hotelCard{
     flex-direction:column;
-    width:100%;
+    width:50%;
   }
 
   .hotelImg{
@@ -104,7 +104,29 @@
 }
 
 .hotelListContainer{
-  width:100%;
+  width:90%;
   max-width:100%;
+}
+/* PAGINATION */
+.pagination{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:27px;
+  margin-top:20px;
+}
+
+.pagination button{
+  padding:8px 6px;
+  border:none;
+  background:#0071c2;
+  color:#0d0d0d;
+  border-radius:6px;
+  cursor:pointer;
+  
+}
+
+.pagination button:disabled{
+  background:gray;
 }
 }

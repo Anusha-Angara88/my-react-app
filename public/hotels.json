@@ -154,7 +154,7 @@
   {
     "id": 9,
     "name": "Golden Sands Hotel",
-    "city": "Miami",
+    "city": "Switzerland",
      "food": " Breakfast/Meals included",
     "internet": "Free WiFi ",
     "price": 17000,
@@ -211,7 +211,7 @@
   {
     "id": 12,
     "name": "Urban Stay Hotel",
-    "city": "Berlin",
+    "city": "Switzerland",
      "food": " Breakfast/Meals included",
     "internet": "Free WiFi ",
     "price": 13000,
@@ -230,7 +230,7 @@
   {
     "id": 13,
     "name": "Ocean Breeze Resort",
-    "city": "Sydney",
+    "city": "Dubai",
      "food": " Breakfast/Meals included",
     "internet": "Free WiFi ",
     "price": 23000,
@@ -249,7 +249,7 @@
   {
     "id": 14,
     "name": "Historic Plaza Hotel",
-    "city": "Rome",
+    "city": "Switzerland",
      "food": " Breakfast/Meals included",
     "internet": "Free WiFi ",
     "price": 17500,

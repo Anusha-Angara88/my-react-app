@@ -15,6 +15,10 @@ import Contact from "./Components/Contact";
 import Cancellation from "./Components/Cancellation";
 import Terms from "./Components/Terms";
 import Privacy from "./Components/Privacy";
+import Flights from "./Components/Flights";
+import Bookflight from "./Components/Bookflight";
+
+
 
 /* Layout */
 function MainLayout({ children }) {
@@ -84,15 +88,40 @@ function App() {
           }
         />
 
-        {/* SIGNIN (NO NAVBAR) */}
+        {/* SIGNIN */}
         <Route path="/signin" element={<Signin />} />
-          <Route path="/about" element={<MainLayout><About /></MainLayout>} />
-      <Route path="/careers" element={<MainLayout><Careers /></MainLayout>} />
-      <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
-      <Route path="/cancellation" element={<MainLayout><Cancellation /></MainLayout>} />
-      <Route path="/terms" element={<MainLayout><Terms /></MainLayout>} />
-      <Route path="/privacy" element={<MainLayout><Privacy /></MainLayout>} />
+
+        <Route path="/about" element={<MainLayout><About /></MainLayout>} />
+        <Route path="/careers" element={<MainLayout><Careers /></MainLayout>} />
+        <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
+        <Route path="/cancellation" element={<MainLayout><Cancellation /></MainLayout>} />
+        <Route path="/terms" element={<MainLayout><Terms /></MainLayout>} />
+        <Route path="/privacy" element={<MainLayout><Privacy /></MainLayout>} />
+         <Route
+  path="/bookflights"
+  element={
+    <MainLayout>
+      <Bookflight />
+    </MainLayout>
+  }
+/>
+
+        
+
+        {/* FLIGHTS */}
+        <Route
+          path="/flights"
+          element={
+            <MainLayout>
+              <Flights />
+            </MainLayout>
+          }
+        />
+
       </Routes>
+      
+      
+
     </BrowserRouter>
   );
 }

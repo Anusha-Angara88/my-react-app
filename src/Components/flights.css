@@ -1,0 +1,98 @@
+.flightsContainer{
+  padding:40px;
+  text-align:center;
+}
+
+.flightSearch{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  margin-bottom:30px;
+}
+
+.flightSearch select{
+  padding:10px;
+  width:200px;
+}
+
+.flightSearch button{
+  padding:10px 20px;
+  background:#966d93;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+.flightCards{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  margin-top:20px;
+}
+
+.flightCard{
+  border:1px solid #333;
+  padding:20px;
+  border-radius:10px;
+  background:#171414;
+  color:white;
+}
+
+.airlineRow{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+
+.rating{
+  color:gold;
+}
+
+.timeRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.timeBlock h2{
+  margin:0;
+  font-size:24px;
+}
+
+.timeBlock p{
+  margin:0;
+  color:#ccc;
+}
+
+.durationBlock{
+  text-align:center;
+}
+
+.duration{
+  font-weight:bold;
+}
+
+.stops{
+  font-size:14px;
+  color:#aaa;
+}
+
+.priceBlock{
+  text-align:right;
+}
+
+.priceBlock h3{
+  margin:0;
+  color:#4caf50;
+}
+
+.bookBtn{
+  margin-top:8px;
+  padding:8px 15px;
+  background:#966d93;
+  color:white;
+  border:none;
+  cursor:pointer;
+  border-radius:5px;
+}

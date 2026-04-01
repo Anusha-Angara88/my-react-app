@@ -8,6 +8,8 @@ function Profile() {
   const [bookings, setBookings] = useState([]);
   const [wishlist, setWishlist] = useState([]);
 
+  const [flightBookings, setFlightBookings] = useState([]);
+
   useEffect(() => {
     const savedWishlist =
       JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -28,6 +30,12 @@ function Profile() {
     }
   }, []);
 
+  useEffect(() => {
+    const flights =
+      JSON.parse(localStorage.getItem("bookedFlights")) || [];
+    setFlightBookings(flights);
+  }, []);
+
   const handleCancel = (id) => {
     const allBookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
@@ -37,6 +45,18 @@ function Profile() {
 
     localStorage.setItem("bookings", JSON.stringify(updatedBookings));
     setBookings((prev) => prev.filter((booking) => booking.id !== id));
+  };
+
+  // CANCEL FLIGHT
+  const handleFlightCancel = (index) => {
+    const flights =
+      JSON.parse(localStorage.getItem("bookedFlights")) || [];
+
+    flights.splice(index, 1);
+
+    localStorage.setItem("bookedFlights", JSON.stringify(flights));
+
+    setFlightBookings(flights);
   };
 
   if (!user) {
@@ -55,6 +75,7 @@ function Profile() {
             padding: "10px",
             marginTop: "10px",
             cursor: "pointer",
+            maxWidth: "800px",
           }}
         >
           Go to Signin
@@ -85,9 +106,10 @@ function Profile() {
       <div
         style={{
           background: "#333",
-          padding: "20px",
+          padding: "10px",
           borderRadius: "10px",
-          margin: "20px 0",
+          margin: "30px 0",
+          maxWidth: "800px",
         }}
       >
         <p><strong>Name:</strong> {user.name}</p>
@@ -115,7 +137,6 @@ function Profile() {
               alignItems: "center",
             }}
           >
-            {/* IMAGE */}
             <img
               src={hotel.image}
               alt={hotel.name}
@@ -123,7 +144,6 @@ function Profile() {
               style={{ borderRadius: "8px" }}
             />
 
-            {/* DETAILS */}
             <div>
               <h4>{hotel.name}</h4>
               <p>City: {hotel.city}</p>
@@ -133,7 +153,53 @@ function Profile() {
         ))
       )}
 
-      {/* BOOKINGS */}
+      {/* ✈ FLIGHT BOOKINGS */}
+      <h3 style={{ marginTop: "30px" }}>
+        ✈ My Flight Bookings ({flightBookings.length})
+      </h3>
+
+      {flightBookings.length === 0 ? (
+        <p style={{ color: "#aaa" }}>No flight bookings yet.</p>
+      ) : (
+        flightBookings.map((flight, index) => (
+          <div
+            key={index}
+            style={{
+              background: "#1a1a1a",
+              padding: "15px",
+              borderRadius: "8px",
+              marginBottom: "10px",
+              borderLeft: "5px solid #4caf50",
+            }}
+          >
+            <h4>{flight.airline}</h4>
+            <p>{flight.from} ➝ {flight.to}</p>
+            <p>Departure: {flight.departure}</p>
+            <p>Arrival: {flight.arrival}</p>
+            <p>Duration: {flight.duration}</p>
+            <p>Stops: {flight.stops}</p>
+            <p style={{ fontWeight: "bold" }}>Price: ₹{flight.price}</p>
+            <p>⭐ {flight.rating}</p>
+
+            <button
+              onClick={() => handleFlightCancel(index)}
+              style={{
+                marginTop: "10px",
+                padding: "6px 12px",
+                backgroundColor: "red",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Cancel Flight
+            </button>
+          </div>
+        ))
+      )}
+
+      {/* HOTEL BOOKINGS */}
       <h3>My Booking History ({bookings.length})</h3>
 
       {bookings.length > 0 ? (
